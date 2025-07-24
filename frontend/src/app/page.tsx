@@ -42,9 +42,13 @@ export default function ChatPage() {
       }
       setChatHistory((prev) => [...prev, `AI: ${result}`]);
       setUserMessage("");
-    } catch (err: any) {
+    } catch (err: unknown) {
       setStreamedResponse("");
-      setChatHistory((prev) => [...prev, `Error: ${err.message}`]);
+      let message = "Unknown error";
+      if (err && typeof err === "object" && "message" in err && typeof (err as any).message === "string") {
+        message = (err as { message: string }).message;
+      }
+      setChatHistory((prev) => [...prev, `Error: ${message}`]);
     } finally {
       setIsLoading(false);
     }
