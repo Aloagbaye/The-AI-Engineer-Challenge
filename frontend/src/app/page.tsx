@@ -45,7 +45,12 @@ export default function ChatPage() {
     } catch (err: unknown) {
       setStreamedResponse("");
       let message = "Unknown error";
-      if (err && typeof err === "object" && "message" in err && typeof (err as any).message === "string") {
+      if (
+        err &&
+        typeof err === "object" &&
+        "message" in err &&
+        typeof (err as { message?: unknown }).message === "string"
+      ) {
         message = (err as { message: string }).message;
       }
       setChatHistory((prev) => [...prev, `Error: ${message}`]);
