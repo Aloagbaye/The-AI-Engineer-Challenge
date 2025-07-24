@@ -202,20 +202,7 @@ a.secondary {
   gap: 8px;
 }
 
-input, textarea, select {
-  border-radius: 8px;
-  border: none;
-  padding: 8px 12px;
-  font-size: 1rem;
-  width: 100%;
-  color: #222;
-}
-
-input[type="password"] {
-  letter-spacing: 0.1em;
-}
-
-button {
+.chatContainer button {
   background: #fff;
   color: #2563eb;
   border: none;
@@ -225,8 +212,23 @@ button {
   cursor: pointer;
   transition: background 0.2s;
 }
-button:hover {
+.chatContainer button:hover {
   background: #e0e7ff;
+}
+
+.chatContainer input,
+.chatContainer textarea,
+.chatContainer select {
+  border-radius: 8px;
+  border: none;
+  padding: 8px 12px;
+  font-size: 1rem;
+  width: 100%;
+  color: #222;
+}
+
+.chatContainer input[type="password"] {
+  letter-spacing: 0.1em;
 }
 
 .streaming {
